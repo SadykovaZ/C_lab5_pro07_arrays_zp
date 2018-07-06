@@ -1,14 +1,17 @@
 ﻿#include<stdio.h>
 #include<stdlib.h>
 #include<iostream>
+#include<time.h>
 
 using namespace std;
 
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	int n = 0;
+	srand(time(NULL));
 
+	int n = 0;
+	start:
 	cout << "Введите номер задания:" << " ";
 	cin >> n;
 
@@ -18,6 +21,7 @@ int main()
 
 		int a[5];
 		int count = 0;
+		cout << endl;
 		for (int i = 0; i < 5; i++)
 		{
 			cout << "Введите a[" << i + 1 << "] число ->" << " ";
@@ -36,6 +40,7 @@ int main()
 		int a[5];
 		int min_v = INT_MAX;
 
+		cout << endl;
 		cout << "Введите в одной строке элементы массива (5 целых чисел) и нажмите <Enter> -> ";
 
 		for (int i = 0; i < 5; i++)
@@ -58,6 +63,7 @@ int main()
 		int count = 0;
 		int sum = 0, sum1 = 0;
 
+		cout << endl;
 		cout << "Введите в одной строке элементы массива (10 целых чисел) и нажмите <Enter> -> ";
 
 		for (int i = 0; i < 10; i++)
@@ -86,6 +92,7 @@ int main()
 		int min_v = INT_MAX;
 		int max_v = INT_MIN;
 
+		cout << endl;
 		cout << "Введите в одной строке элементы массива (10 целых чисел) и нажмите <Enter> -> ";
 
 		for (int i = 0; i < 10; i++)
@@ -118,6 +125,7 @@ int main()
 		int n = 0;
 		bool b = false;
 
+		cout << endl;
 		cout << "Введите 10 чисел для массива: ";
 		for (int i = 0; i < 10; i++)
 		{
@@ -148,6 +156,7 @@ int main()
 		int n = 0;
 		int count = 0;
 
+		cout << endl;
 		cout << "Введите 10 чисел для массива:";
 		for (int i = 0; i < 10; i++)
 		{
@@ -171,6 +180,7 @@ int main()
 		int a[10];
 		bool b = false;
 
+		cout << endl;
 		cout << "Введите 10 чисел массива:";
 		for (int i = 0; i < 10; i++)
 		{
@@ -200,6 +210,7 @@ int main()
 		int sum = 0;
 		int count1 = 0;
 
+		cout << endl;
 		cout << "*** Анализ роста учеников ***" << endl;
 		cout << "Введите рост (см) и нажмите <Enter>. (максимально рост для 10 учеников)" << endl;
 		cout << "Для завершения введите 0 и нажмите <Enter>" << endl;
@@ -218,7 +229,7 @@ int main()
 			sum += a[i];
 			average = (double)sum / count1;
 			if (a[i] == 0)
-				break;			
+				break;
 		}
 		for (int i = 0; i < 10; i++)
 		{
@@ -233,10 +244,102 @@ int main()
 	else if (n == 9)
 	{
 		cout << "Написать программу, которая обрабатывает результаты экзамена. Для каждой оценки программа должна вычислить процент от общего количества оценок." << endl;
+		cout << endl;
 
-	
-	
+		int a[6];
+		int sum = 0;
+		double p[6];
+		char *mes[6] = { "\0", "\0", "двоек-> \0","троек-> \0", "четверок-> \0","пятерок-> \0" };
+
+
+
+		cout << endl;
+		cout << "Обработка результатов экзамена." << endl;
+		cout << "Введите исходные данные: " << endl;
+		for (int i = 5; i >= 2; i--)
+		{
+			cout << mes[i];
+			cin >> a[i];
+			sum += a[i];
+		}
+		for (int i = 2; i < 6; i++)
+		{
+			p[i] = (double)a[i] / sum * 100;
+
+		}
+		cout << "Результаты экзамена." << endl;
+		cout << "Всего оценок = " << sum << endl;
+		for (int i = 5; i >= 2; i--)
+		{
+			cout << mes[i] << " " << a[i] << " " << " -> " << p[i] << "%" << endl;
+		}
 	}
 
+	else if (n == 10)
+	{
+		cout << "Дан массив символов s1,..sn.Подсчитать сколько раз встречается в массиве символ К. " << endl;
+		char string[10];
+		char symbol = 'k';
+		int count = 0;
+		cout << endl;
+		cout << "Введите 10 символов: ";
+		for (char i = 0; i < 10; i++)
+		{
+			cin >> string[i];
+			if (string[i] == symbol)
+			{
+				count++;
+			}
+		}
+		cout << "Символ К встречается " << count << " раз" << endl;
 
+	}
+
+	else if (n == 11)
+	{
+		cout << "Дан массив символов S1,...,Sn. Распечатать все буквы, непосредственно перед которыми находится буква С." << endl;
+
+		char string[10];
+		char symbol = 'c';
+		cout << endl;
+		cout << "Введите 10 символов" << endl;
+		for (char i = 0; i < 10; i++)
+		{
+			cin >> string[i];
+			if (string[i - 1] == symbol)
+			{
+				cout << string[i] << endl;
+			}
+		}
+	}
+
+	else if (n == 12)
+	{
+		cout << "Даны действительные числа а1,..a16. Получить min(a1*a9,a2*a10,...,a8*a16)." << endl;
+		cout << endl;
+		int a[16];
+		int b[8];
+		int min_v = INT_MAX;
+
+		for (int i = 0; i < 16; i++)
+		{
+			a[i] = rand() % 15;
+			cout << "a [" << i + 1 << "] = " << a[i] << endl;
+		}
+		for (int i = 0; i < 8; i++)
+		{
+			b[i] = a[i] * a[i + 8];
+			cout << "a [" << i + 1 << "] *" << " a [" << i + 9 << "] = " << b[i] << endl;
+
+			if (b[i] < min_v)
+			{
+				min_v = b[i];
+			}
+		}
+		cout << "Минимальное значение = " << min_v << endl;
+	}
+
+	goto start;
+	system("pause");
+	return 0;
 }

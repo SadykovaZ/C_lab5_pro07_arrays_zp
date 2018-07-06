@@ -338,6 +338,10 @@ int main()
 		}
 		cout << "Минимальное значение = " << min_v << endl;
 	}
+	else
+	{
+		cout << "Такого задания нет, введите другое" << endl;
+	}
 
 	goto start;
 	system("pause");

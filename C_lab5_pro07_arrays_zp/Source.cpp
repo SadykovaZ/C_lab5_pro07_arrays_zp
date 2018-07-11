@@ -302,7 +302,7 @@ int main()
 		char string[10];
 		char symbol = 'c';
 		cout << endl;
-		cout << "Введите 10 символов" << endl;
+		cout << "Введите 10 символов в одну строку без пробелов и нажмите <Enter>" << endl;
 		for (char i = 0; i < 10; i++)
 		{
 			cin >> string[i];
